@@ -1,5 +1,5 @@
 
-# Java Conditional Operators Examples
+# Loops in Java Examples
 
 Примеры кода для вебинара по циклам в Java.
 Каждый файл соответствует одному слайду и содержит исполняемый пример.
