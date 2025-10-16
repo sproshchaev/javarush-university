@@ -7,3 +7,4 @@
 7. Двумерные массивы [m1-lecture-07](m1-lecture-07)  
 8. Функции [m1-lecture-08](m1-lecture-08)  
 9. Работа со строками [m1-lecture-09](m1-lecture-09)  
+10. Типы данных. Знакомство с ООП [m1-lecture-11](m1-lecture-11)  
