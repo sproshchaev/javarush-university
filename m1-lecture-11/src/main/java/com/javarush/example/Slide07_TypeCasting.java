@@ -30,7 +30,10 @@ public class Slide07_TypeCasting {
         // 2. Явное (сужающее) приведение (может быть потеря!)
         System.out.println("2. Явное приведение (может привести к потере информации):");
         int bigInt = 1000;
+
         byte smallByte = (byte) bigInt; // int -> byte (явное приведение)
+
+
         System.out.printf("int bigInt = %d;\n", bigInt);
         System.out.printf("byte smallByte = (byte) bigInt; -> smallByte = %d\n", smallByte);
         System.out.println("Внимание! Значение 1000 вышло за пределы byte (-128..127), произошло переполнение!");
