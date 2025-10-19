@@ -8,3 +8,4 @@
 8. Функции [m1-lecture-08](m1-lecture-08)  
 9. Работа со строками [m1-lecture-09](m1-lecture-09)  
 10. Типы данных. Знакомство с ООП [m1-lecture-11](m1-lecture-11)  
+11. Объекты [m1-lecture-12](m1-lecture-12)  
