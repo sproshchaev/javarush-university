@@ -11,6 +11,6 @@
 11. Объекты [m1-lecture-12](m1-lecture-12)  
 12. Классы и static [m1-lecture-13](m1-lecture-13)  
 13. Списки и Generic [m1-lecture-15](m1-lecture-15)  
-14. Коллекции Set [m1-lecture-16](m1-lecture-16)
-15. Коллекции Map [m1-lecture-17](m1-lecture-17)
+14. Коллекции Set [m1-lecture-16](m1-lecture-16)  
+15. Коллекции Map [m1-lecture-17](m1-lecture-17)  
 16. Singlton enum switch [m1-lecture-19](m1-lecture-19)  
