@@ -14,23 +14,23 @@ public class Slide05_HashMapMethods {
         studentScores.put("Анна", 95);
         studentScores.put("Борис", 87);
         studentScores.put("Виктория", 92);
-        System.out.println("После put(): " + studentScores);
+        System.out.println("После put(): " + studentScores); // После put(): {Борис=87, Анна=95, Виктория=92}
 
         // 2. get(K key) — получение значения по ключу
         Integer annaScore = studentScores.get("Анна");
-        System.out.println("Оценка Анны: " + annaScore);
+        System.out.println("Оценка Анны: " + annaScore); // Оценка Анны: 95
 
         // 3. containsKey(K key) — проверка наличия ключа
-        boolean hasBoris = studentScores.containsKey("Борис");
+        boolean hasBoris = studentScores.containsKey("Борис"); // Есть ли Борис? true
         System.out.println("Есть ли Борис? " + hasBoris);
 
         // 4. containsValue(V value) — проверка наличия значения
         boolean has95 = studentScores.containsValue(95);
-        System.out.println("Есть ли оценка 95? " + has95);
+        System.out.println("Есть ли оценка 95? " + has95); // Есть ли оценка 95? true
 
         // 5. remove(K key) — удаление пары по ключу
         Integer removed = studentScores.remove("Борис");
-        System.out.println("Удален Борис, его оценка: " + removed);
+        System.out.println("Удален Борис, его оценка: " + removed); // Удален Борис, его оценка: 87
         System.out.println("После remove(): " + studentScores);
 
         // 6. clear() — очистка всей карты
@@ -38,7 +38,7 @@ public class Slide05_HashMapMethods {
         System.out.println("После clear(): " + studentScores);
 
         // 7. size() — размер карты
-        System.out.println("Размер после очистки: " + studentScores.size());
+        System.out.println("Размер после очистки: " + studentScores.size()); // Размер после очистки: 0
 
         // Возвращаем данные для демонстрации остальных методов
         studentScores.put("Анна", 95);
@@ -46,10 +46,10 @@ public class Slide05_HashMapMethods {
 
         // 8. keySet() — множество ключей
         Set<String> names = studentScores.keySet();
-        System.out.println("\nИмена студентов (keySet): " + names);
+        System.out.println("\nИмена студентов (keySet): " + names); // Имена студентов (keySet): [Анна, Виктория]
 
         // 9. values() — множество значений
-        Collection<Integer> scores = studentScores.values();
+        Collection<Integer> scores = studentScores.values(); // Оценки (values): [95, 92]
         System.out.println("Оценки (values): " + scores);
 
         // 10. entrySet() — множество пар (Map.Entry)

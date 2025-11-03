@@ -21,7 +21,7 @@ public class Slide09_CollectionAdvice {
         // 2. Используем HashSet — когда нужны только уникальные элементы
         System.out.println("\n✅ HashSet — идеален для хранения уникальных значений:");
         Set<String> visitedCities = new HashSet<>();
-        visitedCities.add("Москва");
+        visitedCities.add("Москва"); // O(1) / O(n) / O(log n)
         visitedCities.add("Париж");
         visitedCities.add("Москва"); // дубликат не добавится
 
