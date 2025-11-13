@@ -15,3 +15,4 @@
 15. Коллекции Map [m1-lecture-17](m1-lecture-17)  
 16. Singlton enum switch [m1-lecture-19](m1-lecture-19)  
 17. Исключения [m1-lecture-20](m1-lecture-20)  
+18. Исключения 2 [m1-lecture-21](m1-lecture-21)  
