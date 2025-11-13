@@ -6,7 +6,7 @@
 ## Слайды и соответствующие классы:
 
 1. Enum: перечисление (Enumeration) [Slide03_DaysOfWeekExample.java](src/main/java/com/javarush/example/Slide03_DaysOfWeekExample.java)
-2. Объявление enum и присваивание значений [Slide04_DeclarationSyntaxExample.java](src/main/java/com/javarush/example/Slide04_DeclarationSyntaxExample.java)
+2. Объявление enum и присваивание значений [Slide04_DeclarationAndUsageExample.java](src/main/java/com/javarush/example/Slide04_DeclarationAndUsageExample.java)
 3. Методы enum’а: values() и ordinal() [Slide05_EnumMethodsExample.java](src/main/java/com/javarush/example/Slide05_EnumMethodsExample.java)
 4. Ещё методы enum’а: toString(), valueOf(), == [Slide06_ConversionMethodsExample.java](src/main/java/com/javarush/example/Slide06_ConversionMethodsExample.java)
 5. Преобразование в класс: как enum работает "под капотом" [Slide07_EnumAsClassExample.java](src/main/java/com/javarush/example/Slide07_EnumAsClassExample.java)
