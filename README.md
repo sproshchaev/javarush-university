@@ -16,6 +16,7 @@
 16. Singlton enum switch [m1-lecture-19](m1-lecture-19)  
 17. Исключения [m1-lecture-20](m1-lecture-20)  
 18. Исключения 2 [m1-lecture-21](m1-lecture-21)  
+19. Потоки ввода-вывода [m1-lecture-23](m1-lecture-23)  
 
 Модуль 3
 17. Паттерны проектирования 2 [m3-level-17](m3-level-17)  
