@@ -17,7 +17,9 @@
 17. Исключения [m1-lecture-20](m1-lecture-20)  
 18. Исключения 2 [m1-lecture-21](m1-lecture-21)  
 19. Потоки ввода-вывода [m1-lecture-23](m1-lecture-23)  
+20. Потоки ввода-вывода 2 [m1-lecture-24](m1-lecture-24)  
 
 Модуль 3
 17. Паттерны проектирования 2 [m3-level-17](m3-level-17)  
 18. Уровень 18 Работа с памятью в Java [m3-level-18](m3-level-18)  
+19. Уровень 19 Concurrent [m3-level-19](m3-level-19)  
