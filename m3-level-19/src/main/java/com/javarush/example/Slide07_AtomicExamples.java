@@ -43,6 +43,33 @@ public class Slide07_AtomicExamples {
         }
     }
 
+    // Демонстрация всех методов AtomicInteger
+    public static void demonstrateAtomicIntegerMethods() {
+        System.out.println("\n5. ВСЕ МЕТОДЫ ATOMICINTEGER:");
+        AtomicInteger atomic = new AtomicInteger(50);
+
+        System.out.println("Начальное значение: " + atomic.get());
+
+        // Get-And- операции
+        System.out.println("getAndIncrement(): " + atomic.getAndIncrement()); // 50 → 51
+        System.out.println("getAndDecrement(): " + atomic.getAndDecrement()); // 51 → 50
+        System.out.println("getAndAdd(10): " + atomic.getAndAdd(10)); // 50 → 60
+        System.out.println("getAndSet(100): " + atomic.getAndSet(100)); // 60 → 100
+
+        // And-Get операции
+        System.out.println("incrementAndGet(): " + atomic.incrementAndGet()); // 100 → 101
+        System.out.println("decrementAndGet(): " + atomic.decrementAndGet()); // 101 → 100
+        System.out.println("addAndGet(25): " + atomic.addAndGet(25)); // 100 → 125
+
+        // CAS операции
+        System.out.println("compareAndSet(125, 150): " + atomic.compareAndSet(125, 150));
+        System.out.println("Текущее значение: " + atomic.get());
+
+        // LazySet - "ленивая" установка (в конечном счете установится)
+        atomic.lazySet(200);
+        System.out.println("После lazySet(200): " + atomic.get());
+    }
+
     public static void main(String[] args) throws InterruptedException {
         System.out.println("=== ДЕМОНСТРАЦИЯ АТОМАРНЫХ ОПЕРАЦИЙ ===\n");
 
@@ -99,5 +126,15 @@ public class Slide07_AtomicExamples {
         System.out.println("addAndGet(5): " + num.addAndGet(5)); // 22
         System.out.println("getAndSet(100): " + num.getAndSet(100)); // 22, потом 100
         System.out.println("Финальное значение: " + num.get());
+
+        // 5. Демонстрация всех методов AtomicInteger
+        demonstrateAtomicIntegerMethods();
+
+        // 6. AtomicBoolean
+        System.out.println("\n6. ATOMICBOOLEAN:");
+        AtomicBoolean atomicBool = new AtomicBoolean(true);
+        System.out.println("Начальное значение: " + atomicBool.get());
+        System.out.println("compareAndSet(true, false): " + atomicBool.compareAndSet(true, false));
+        System.out.println("Текущее значение: " + atomicBool.get());
     }
 }
