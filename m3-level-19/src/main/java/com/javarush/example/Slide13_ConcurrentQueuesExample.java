@@ -143,6 +143,84 @@ public class Slide13_ConcurrentQueuesExample {
         System.out.println("Вывод: избегайте частых вызовов size()!\n");
     }
 
+    // Дополнительный метод в классе Slide13_ConcurrentQueuesExample
+    public static void demonstrateBlockingQueueNeed() throws InterruptedException {
+        System.out.println("5. ПОЧЕМУ НУЖНЫ BLOCKING QUEUES:");
+
+        // Демонстрация проблемы с non-blocking очередью
+        System.out.println("--- ПРОБЛЕМА: NON-BLOCKING МОЖЕТ ПЕРЕПОЛНИТЬ ПАМЯТЬ ---");
+
+        ConcurrentLinkedQueue<Integer> nonBlockingQueue = new ConcurrentLinkedQueue<>();
+        AtomicInteger memoryWarning = new AtomicInteger(0);
+
+        // Быстрый producer, медленный consumer
+        Thread fastProducer = new Thread(() -> {
+            for (int i = 0; i < 100000; i++) {
+                nonBlockingQueue.offer(i);
+                if (nonBlockingQueue.size() > 50000 && memoryWarning.get() == 0) {
+                    System.out.println("⚠️  Очередь разрослась до " + nonBlockingQueue.size() + " элементов!");
+                    System.out.println("⚠️  Риск OutOfMemoryError!");
+                    memoryWarning.set(1);
+                }
+            }
+        });
+
+        Thread slowConsumer = new Thread(() -> {
+            for (int i = 0; i < 1000; i++) {
+                nonBlockingQueue.poll();
+                try { Thread.sleep(10); } catch (InterruptedException e) {} // Медленно обрабатываем
+            }
+        });
+
+        fastProducer.start();
+        slowConsumer.start();
+
+        Thread.sleep(1000); // Даем поработать 1 секунду
+        fastProducer.interrupt();
+        slowConsumer.interrupt();
+
+        System.out.println("Размер non-blocking очереди: " + nonBlockingQueue.size());
+        System.out.println("Producer добавил 100000, Consumer обработал только 1000");
+        System.out.println("Результат: очередь переполнена!\n");
+
+        // Решение: Blocking очередь
+        System.out.println("--- РЕШЕНИЕ: BLOCKING QUEUE КОНТРОЛИРУЕТ СКОРОСТЬ ---");
+
+        BlockingQueue<Integer> blockingQueue = new ArrayBlockingQueue<>(10);
+        AtomicInteger produced = new AtomicInteger(0);
+        AtomicInteger consumed = new AtomicInteger(0);
+
+        Thread controlledProducer = new Thread(() -> {
+            try {
+                for (int i = 0; i < 20; i++) {
+                    blockingQueue.put(i); // Блокируется если очередь полная
+                    produced.incrementAndGet();
+                    System.out.println("Producer добавил: " + i + " (размер: " + blockingQueue.size() + ")");
+                }
+            } catch (InterruptedException e) {}
+        });
+
+        Thread controlledConsumer = new Thread(() -> {
+            try {
+                for (int i = 0; i < 20; i++) {
+                    Thread.sleep(100); // Медленно обрабатываем
+                    Integer item = blockingQueue.take(); // Блокируется если очередь пустая
+                    consumed.incrementAndGet();
+                    System.out.println("Consumer обработал: " + item + " (размер: " + blockingQueue.size() + ")");
+                }
+            } catch (InterruptedException e) {}
+        });
+
+        controlledProducer.start();
+        controlledConsumer.start();
+
+        controlledProducer.join();
+        controlledConsumer.join();
+
+        System.out.println("Produced: " + produced.get() + ", Consumed: " + consumed.get());
+        System.out.println("Очередь саморегулируется - нет переполнения!");
+    }
+
     public static void main(String[] args) throws InterruptedException {
         System.out.println("=== CONCURRENT QUEUES: NON-BLOCKING ===\n");
 
@@ -150,6 +228,7 @@ public class Slide13_ConcurrentQueuesExample {
         demonstrateConcurrentLinkedDeque();
         demonstratePerformance();
         demonstrateSizeWarning();
+        demonstrateBlockingQueueNeed();
 
         System.out.println("=== ВЫВОД ===");
         System.out.println("✓ ConcurrentLinkedQueue - быстрая FIFO очередь");
