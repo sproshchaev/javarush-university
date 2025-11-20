@@ -161,6 +161,142 @@ public class Slide09_ConcurrentCollectionsExample {
         System.out.println("Никаких дубликатов благодаря addIfAbsent!");
     }
 
+    // Дополнительный метод в классе Slide09_ConcurrentCollectionsExample
+    public static void demonstrateConcurrentMap() {
+        System.out.println("5. CONCURRENTMAP И CONCURRENTHASHMAP:");
+
+        ConcurrentMap<String, Integer> scores = new ConcurrentHashMap<>();
+        scores.put("Alice", 100);
+        scores.put("Bob", 200);
+        scores.put("Charlie", 150);
+
+        System.out.println("Исходные баллы: " + scores);
+
+        // putIfAbsent - атомарное условное добавление
+        System.out.println("\n--- PUTIFABSENT ---");
+        Integer result1 = scores.putIfAbsent("Alice", 999); // Уже есть
+        Integer result2 = scores.putIfAbsent("David", 300); // Новый
+        System.out.println("putIfAbsent('Alice', 999): " + result1);
+        System.out.println("putIfAbsent('David', 300): " + result2);
+        System.out.println("После putIfAbsent: " + scores);
+
+        // remove с проверкой значения
+        System.out.println("\n--- REMOVE С ПРОВЕРКОЙ ---");
+        boolean removed1 = scores.remove("Bob", 999); // Неверное значение
+        boolean removed2 = scores.remove("Bob", 200); // Верное значение
+        System.out.println("remove('Bob', 999): " + removed1);
+        System.out.println("remove('Bob', 200): " + removed2);
+        System.out.println("После remove: " + scores);
+
+        // replace методы
+        System.out.println("\n--- REPLACE МЕТОДЫ ---");
+        boolean replaced1 = scores.replace("Charlie", 150, 250); // Условная замена
+        Integer replaced2 = scores.replace("Alice", 500); // Безусловная замена
+        System.out.println("replace('Charlie', 150, 250): " + replaced1);
+        System.out.println("replace('Alice', 500): вернул " + replaced2);
+        System.out.println("После replace: " + scores);
+
+        // Многопоточный сценарий
+        System.out.println("\n--- МНОГОПОТОЧНЫЙ СЦЕНАРИЙ ---");
+        ConcurrentMap<String, AtomicInteger> threadSafeCounter = new ConcurrentHashMap<>();
+
+        // Несколько потоков обновляют счетчики
+        Thread thread1 = new Thread(() -> {
+            for (int i = 0; i < 100; i++) {
+                threadSafeCounter.putIfAbsent("counter", new AtomicInteger(0));
+                threadSafeCounter.get("counter").incrementAndGet();
+            }
+        });
+
+        Thread thread2 = new Thread(() -> {
+            for (int i = 0; i < 100; i++) {
+                threadSafeCounter.putIfAbsent("counter", new AtomicInteger(0));
+                threadSafeCounter.get("counter").incrementAndGet();
+            }
+        });
+
+        thread1.start();
+        thread2.start();
+
+        try {
+            thread1.join();
+            thread2.join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        System.out.println("Многопоточный счетчик: " + threadSafeCounter.get("counter"));
+        System.out.println("Всегда 200 благодаря атомарным операциям!");
+    }
+
+    // Дополнительный метод в классе Slide09_ConcurrentCollectionsExample
+    public static void demonstrateConcurrentHashMaps() {
+        System.out.println("6. CONCURRENTHASHMAP И РОДСТВЕННИКИ:");
+
+        // ConcurrentHashMap - основная реализация
+        ConcurrentHashMap<String, String> concurrentMap = new ConcurrentHashMap<>();
+        concurrentMap.put("Java", "Spring");
+        concurrentMap.put("Python", "Django");
+        concurrentMap.put("JavaScript", "React");
+
+        System.out.println("ConcurrentHashMap: " + concurrentMap);
+
+        // Безопасная итерация с модификацией
+        System.out.println("\n--- БЕЗОПАСНАЯ ИТЕРАЦИЯ ---");
+        for (String key : concurrentMap.keySet()) {
+            System.out.print(key + " ");
+            if ("Python".equals(key)) {
+                concurrentMap.put("Go", "Gin"); // Без ConcurrentModificationException!
+            }
+        }
+        System.out.println("\nПосле итерации: " + concurrentMap);
+
+        // ConcurrentSkipListMap - отсортированная версия
+        System.out.println("\n--- CONCURRENTSKIPLISTMAP ---");
+        ConcurrentSkipListMap<Integer, String> sortedMap = new ConcurrentSkipListMap<>();
+        sortedMap.put(30, "Thirty");
+        sortedMap.put(10, "Ten");
+        sortedMap.put(20, "Twenty");
+
+        System.out.println("Автосортировка: " + sortedMap);
+        System.out.println("firstKey(): " + sortedMap.firstKey());
+        System.out.println("lastKey(): " + sortedMap.lastKey());
+        System.out.println("headMap(25): " + sortedMap.headMap(25));
+        System.out.println("tailMap(15): " + sortedMap.tailMap(15));
+
+        // ConcurrentSkipListSet
+        System.out.println("\n--- CONCURRENTSKIPLISTSET ---");
+        ConcurrentSkipListSet<String> sortedSet = new ConcurrentSkipListSet<>();
+        sortedSet.add("Orange");
+        sortedSet.add("Apple");
+        sortedSet.add("Banana");
+
+        System.out.println("Отсортированный сет: " + sortedSet);
+        System.out.println("first(): " + sortedSet.first());
+        System.out.println("last(): " + sortedSet.last());
+
+        // Производительность в многопоточной среде
+        System.out.println("\n--- МНОГОПОТОЧНАЯ ПРОИЗВОДИТЕЛЬНОСТЬ ---");
+        ConcurrentHashMap<String, AtomicInteger> counter = new ConcurrentHashMap<>();
+
+        Thread[] threads = new Thread[10];
+        for (int i = 0; i < 10; i++) {
+            threads[i] = new Thread(() -> {
+                for (int j = 0; j < 100; j++) {
+                    counter.computeIfAbsent("key", k -> new AtomicInteger()).incrementAndGet();
+                }
+            });
+            threads[i].start();
+        }
+
+        for (Thread thread : threads) {
+            try { thread.join(); } catch (InterruptedException e) {}
+        }
+
+        System.out.println("Результат многопоточного счетчика: " + counter.get("key"));
+        System.out.println("Всегда 1000 благодаря сегментированным блокировкам!");
+    }
+
     public static void main(String[] args) throws InterruptedException {
         System.out.println("=== CONCURRENT COLLECTIONS: COPYONWRITEARRAYLIST ===\n");
 
@@ -168,6 +304,8 @@ public class Slide09_ConcurrentCollectionsExample {
         demonstratePerformance();
         demonstrateMethods();
         demonstrateAdditionalMethods();
+        demonstrateConcurrentMap();
+        demonstrateConcurrentHashMaps();
 
         System.out.println("=== ВЫВОД ===");
         System.out.println("✓ Идеально для listeners, конфигураций, кэшей");
