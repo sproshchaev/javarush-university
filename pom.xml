@@ -24,11 +24,15 @@
         <module>m1-lecture-19</module>
         <module>m1-lecture-20</module>
         <module>m1-lecture-21</module>
-        <module>m3-level-17</module>
         <module>m1-lecture-23</module>
-        <module>m3-level-18</module>
         <module>m1-lecture-24</module>
+        <module>m1-lecture-25</module>
+        <module>m1-lecture-26</module>
+        <module>m3-level-17</module>
+        <module>m3-level-18</module>
         <module>m3-level-19</module>
+        <module>m4-level-01</module>
+        <module>m4-level-02</module>
     </modules>
 
     <properties>
