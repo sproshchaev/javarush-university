@@ -18,8 +18,14 @@
 18. Исключения 2 [m1-lecture-21](m1-lecture-21)  
 19. Потоки ввода-вывода [m1-lecture-23](m1-lecture-23)  
 20. Потоки ввода-вывода 2 [m1-lecture-24](m1-lecture-24)  
+21. Работа со временем и датой [m1-lecture-25](m1-lecture-25)  
+22. Git [m1-lecture-26](m1-lecture-26)  
 
 Модуль 3
 17. Паттерны проектирования 2 [m3-level-17](m3-level-17)  
 18. Уровень 18 Работа с памятью в Java [m3-level-18](m3-level-18)  
 19. Уровень 19 Concurrent [m3-level-19](m3-level-19)  
+
+Модуль 4
+1. Уровень 1 Базы данных и SQL [m4-level-01](m4-level-01)  
+2. Уровень 2 Сложные SQL-запросы [m4-level-02](m4-level-02)  
