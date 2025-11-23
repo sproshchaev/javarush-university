@@ -53,16 +53,41 @@ docker run --name mysql-sakila -e MYSQL_ROOT_PASSWORD=YOUR_PASSWORD -d -p 3306:3
     - Комбинирование условий с NULL
     - Распространенные ошибки при работе с NULL
 
-## Как использовать:
+## Учебная база данных Sakila
 
-1. Установите базу данных Sakila (инструкции в Slide03_Sakila_Setup.sql)
-2. Откройте файлы в MySQL Workbench или другой SQL-среде
-3. Выполняйте запросы последовательно для изучения возможностей SQL
-4. Экспериментируйте с изменением параметров запросов
+Все примеры подготовлены на учебной базе данных **Sakila** - официальной демонстрационной базе данных от MySQL.
 
-## Требования:
-- MySQL Server 8.0 или выше
-- База данных Sakila
-- MySQL Workbench или другая SQL-среда разработки
+### Установка базы данных Sakila
 
-Все примеры протестированы на базе данных Sakila и готовы к выполнению.
+#### Способ 1: Docker (рекомендуется)
+
+**Что такое Docker Desktop?**
+
+**Docker Desktop** — это настольное приложение, которое упрощает установку и работу с Docker на вашем компьютере.
+
+[Скачать Docker Desktop](https://www.docker.com/products/docker-desktop/)
+
+**Команда для терминала:**
+```bash
+docker run --name mysql-sakila -e MYSQL_ROOT_PASSWORD=YOUR_PASSWORD -d -p 3306:3306 restsql/mysql-sakila
+```
+
+#### Способ 2: Ручная установка
+
+1. **Официальная документация и схема Sakila**:  
+   [https://dev.mysql.com/doc/sakila/en/sakila-structure.html](https://dev.mysql.com/doc/sakila/en/sakila-structure.html)
+
+2. **Скачать базу данных (Version 8.0)**:  
+   [https://dev.mysql.com/doc/index-other.html](https://dev.mysql.com/doc/index-other.html)
+
+   Или прямая ссылка на архив: https://downloads.mysql.com/docs/sakila-db.zip
+
+### Что такое Sakila?
+
+Sakila - это стандартная демонстрационная база данных, которая представляет модель бизнеса по аренде фильмов. Она содержит реалистичные данные о фильмах, актерах, клиентах, арендах и платежах, что делает её идеальной для обучения SQL.
+
+## Как использовать
+
+1. Установите базу данных Sakila в вашу MySQL
+2. Выполняйте SQL-запросы из соответствующих файлов
+3. Изучайте результаты и экспериментируйте с параметрами
