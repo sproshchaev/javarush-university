@@ -49,7 +49,7 @@ git push -u origin base
 
 ---
 
-### Как получить свежие изменения из sproshchaev/javarush-university в свою длкальную ветку base и запушить в свой репозиторий
+### Как получить свежие изменения из sproshchaev/javarush-university в свою локальную ветку base и запушить в свой репозиторий
 Если пришло уведомление о размещении видео с записью вебинара на YouTube, то можно обновить примеры в своей ветке base
 ```bash
 # 1. Получить свежие изменения из sproshchaev/javarush-university
