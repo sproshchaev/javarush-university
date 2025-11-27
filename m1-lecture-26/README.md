@@ -29,7 +29,7 @@ upstream  https://github.com/sproshchaev/javarush-university.git (push)
 
 ### **Получение обновлений из sproshchaev**
 
-#### **Вариант 1: Обновление ветки main**
+#### Обновление ветки
 ```bash
 # Переключаемся на main
 git checkout main
@@ -40,28 +40,6 @@ git fetch upstream
 # Вливаем изменения в свою ветку main
 git merge upstream/main
 
-# Обновляем свой форк на GitHub
-git push origin main
-```
-
-#### **Вариант 2: Обновление ветки base**
-```bash
-# Переключаемся на base
-git checkout base
-
-# Получаем и вливаем изменения
-git pull upstream base
-
-# ИЛИ поэтапно:
-git fetch upstream
-git merge upstream/base
-
-# Обновляем свой форк
-git push origin base
-```
-
-#### **Вариант 3: Если ветки base еще нет локально**
-```bash
 # Создаем локальную ветку base и связываем с upstream
 git checkout -b base upstream/base
 
@@ -71,20 +49,20 @@ git push -u origin base
 
 ---
 
-### **Полная последовательность команд (шаблон)**
+### **Как получить изменения из sproshchaev/javarush-university в свою длкальную ветку base и запушить в свой репозиторий **
 
 ```bash
-# 1. Получить свежие изменения из sproshchaev
+# 1. Получить свежие изменения из sproshchaev/javarush-university
 git fetch upstream
 
 # 2. Перейти в нужную ветку
-git checkout main  # или base
+git checkout base
 
 # 3. Влить изменения
-git merge upstream/main
+git merge upstream/base
 
 # 4. Обновить свой форк на GitHub
-git push origin main
+git push origin base
 ```
 
 ---
