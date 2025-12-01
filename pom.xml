@@ -34,6 +34,7 @@
         <module>m4-level-01</module>
         <module>m4-level-02</module>
         <module>m4-level-03</module>
+        <module>m4-level-04</module>
     </modules>
 
     <properties>
