@@ -33,6 +33,7 @@
         <module>m3-level-19</module>
         <module>m4-level-01</module>
         <module>m4-level-02</module>
+        <module>m1-project-01</module>
     </modules>
 
     <properties>
