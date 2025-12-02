@@ -22,15 +22,26 @@ public class SimpleDateParts {
             date.setMonth(i);
             System.out.println(date);
         }
+    }
 
-        // todo Написать метод, который принимает дату 24.11.2025
-        //  и мне должно вернуться число дней с начала года
+    // todo Написать метод, который принимает дату 24.11.2025
+    //  и мне должно вернуться число дней с начала года
+    private static int getTotalDaysOfPassedYear(Date date) {
 
-        // todo Второй метод - вернуть число недель с начала года :)
+        return 0;
+    }
 
-        // todo Третий метод - получить в аргументах 2 даты и вернуть число
-        // дней между ними
+    // todo Второй метод - вернуть число недель с начала года :)
+    private static int getTotalWeeksOfCurrentYear() {
 
+        return 0;
+    }
+
+    // todo Третий метод - получить в аргументах 2 даты и вернуть число
+    // дней между ними
+    private static int getTotalDaysBetweenDate(Date startDate, Date endDate) {
+
+        return 0;
     }
 
 }
