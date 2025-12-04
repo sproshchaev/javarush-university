@@ -1,32 +1,79 @@
 package com.javarush.morse;
 
+import com.javarush.morse.core.MorseCoder;
+import com.javarush.morse.exception.MorseException;
+import com.javarush.morse.model.ProcessingResult;
+import com.javarush.morse.service.FileService;
+
+import java.util.Scanner;
+
 /**
  * Проект Модуля 1 - Точка входа
  */
 public class MorseApp {
 
-    // todo: поля класса - зависимости
+    private final MorseCoder morseCoder;
+    private final FileService fileService;
+    private final Scanner scanner;
 
-    // todo: конструктор - инициализация зависимостей
+    public MorseApp(MorseCoder morseCoder, FileService fileService, Scanner scanner) {
+        this.morseCoder = morseCoder;
+        this.fileService = fileService;
+        this.scanner = scanner;
+    }
+
 
     public static void main(String[] args) {
-        // todo: создать экземпляр приложения и запустить
+        // todo точка входа
+        // MorseApp app = new MorseApp();
+        // app.run();
     }
 
     public void run() {
         // todo: главный цикл приложения
         // 1) вывести приветствие
+        printWelcomeMessage();
+
         // 2) Меню (бесконечный цикл)*
+        while (true) {
+            showMainMenu();
+            String choice = scanner.nextLine();
+
+            switch (choice) {
+                case "1":
+                    processEncodeFile();
+                    break;
+                case "2":
+                    processDecodeFile();
+                    break;
+                case "3":
+                    showAlphabetInfo();
+                    break;
+                case "0":
+                    System.out.println("\nДо свидания!");
+                default:
+                    System.out.println("Неверный выбор! Попробуйте снова.");
+            }
+        }
+
         // 3) Обработка выбора пользователя
         // 4) * выход по команде
     }
 
     private void printWelcomeMessage() {
-        // todo: красивое приветствие с названием приложения
+        System.out.println("АЗБУКА МОРЗЕ v.1.0");
+        System.out.println("Профессиональный кодер-декодер");
+        System.out.println("=".repeat(50));
+
     }
 
     private void showMainMenu() {
-        // todo: отобразить меню с вариантами действий
+        System.out.println("ГЛАВНОЕ МЕНЮ: ");
+        System.out.println("1. Закодировать файл (текст -> Морзе)");
+        System.out.println("2. Декодировать файл (Морзе -> текст)");
+        System.out.println("3. Справка по алфавиту Морзе");
+        System.out.println("0. Выход");
+        System.out.print("Выберите действие: ");
     }
 
     private void processEncodeFile() {
@@ -36,6 +83,19 @@ public class MorseApp {
         // 3) закодировать текст
         // 4) записать результат
         // 5) показать успешный результат
+        System.out.println("Кодирование файла:");
+        try {
+            String inputFile = getInputFilePath();
+            String outputFile = getOutputFilePath();
+
+            String context = fileService.readFile(inputFile);
+            ProcessingResult result = morseCoder.encodeText(context);
+            fileService.writeFile(getOutputFromResult(result), outputFile);
+
+            displaySuccessResult(result, inputFile, outputFile);
+        } catch (MorseException e) {
+            displayError(e.getMessage());
+        }
     }
 
     private void processDecodeFile() {
@@ -55,7 +115,7 @@ public class MorseApp {
         return null;
     }
 
-    private void displaySuccessResult() {
+    private void displaySuccessResult(ProcessingResult result, String inputFile, String outputFile) {
         // todo: красивый вывод успешного результата
     }
 
@@ -65,6 +125,11 @@ public class MorseApp {
 
     private void showAlphabetInfo() {
         // todo: вывод справки по алфавиту Морзе
+    }
+
+    // todo дописать
+    private String getOutputFromResult(ProcessingResult result) {
+        return null;
     }
 
 }

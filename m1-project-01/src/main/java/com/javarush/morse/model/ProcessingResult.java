@@ -2,10 +2,10 @@ package com.javarush.morse.model;
 
 public class ProcessingResult {
 
-    private final boolean success;
-    private final String message;
-    private final String inputPreview;
-    private final String outputPreview;
+    private final boolean success;      // Успешное выполнение операции
+    private final String message;       // Сообщение для пользователя
+    private final String inputPreview;  // Что на входе
+    private final String outputPreview; // Что на выходе
 
 
     public ProcessingResult(boolean success, String message, String inputPreview, String outputPreview) {
