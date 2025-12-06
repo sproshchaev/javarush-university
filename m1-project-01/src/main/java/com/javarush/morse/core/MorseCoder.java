@@ -34,9 +34,8 @@ public class MorseCoder {
         }
 
         String encoded = result.toString();
-
         // 6) вернуть ProcessingResult
-        return new ProcessingResult(true, "Текст успешно заколирован",
+        return new ProcessingResult(true, "Текст успешно закодирован",
                 getPreview(text), getPreview(encoded));
     }
 
@@ -51,7 +50,7 @@ public class MorseCoder {
         // 3) найти букву для каждого слова 4) обработать разделитель слов 5) Собрать результат
         for (String symbol : symbols) {
             if (Alphabet.MORSE_TO_TEXT.containsKey(symbol)) {
-                result.append(Alphabet.TEXT_TO_MORSE.get(symbol));
+                result.append(Alphabet.MORSE_TO_TEXT.get(symbol));
             } else if (symbol.equals("/")) {
                 result.append(" ");
             }

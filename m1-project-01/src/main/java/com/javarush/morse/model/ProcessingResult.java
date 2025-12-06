@@ -30,4 +30,14 @@ public class ProcessingResult {
     public String getOutputPreview() {
         return outputPreview;
     }
+
+    @Override
+    public String toString() {
+        return "ProcessingResult{" +
+                "success=" + success +
+                ", message='" + message + '\'' +
+                ", inputPreview='" + inputPreview + '\'' +
+                ", outputPreview='" + outputPreview + '\'' +
+                '}';
+    }
 }

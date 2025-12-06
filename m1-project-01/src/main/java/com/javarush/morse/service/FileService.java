@@ -30,15 +30,18 @@ public class FileService {
     }
 
     public void writeFile(String content, String filePath) throws MorseException {
+
         try {
             // 1) преобразовать путь
             Path path = Path.of(filePath);
+
             Path parentDir = path.getParent();
             // 2) создать родительские директории (*)
             if (parentDir != null && !Files.exists(parentDir)) {
                 Files.createDirectories(parentDir);
             }
-            // 3) записать содержимаое с правильными опциями
+
+            // 3) записать содержимое с правильными опциями
             Files.writeString(path, content, StandardOpenOption.CREATE, StandardOpenOption.TRUNCATE_EXISTING);
 
         } catch (IOException e) {

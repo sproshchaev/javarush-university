@@ -83,8 +83,10 @@ public class MorseApp {
             String outputFile = getOutputFilePath();
 
             String context = fileService.readFile(inputFile);
+
             ProcessingResult result = morseCoder.encodeText(context);
-            fileService.writeFile(getOutputFromResult(result), outputFile);
+
+            fileService.writeFile(result.getOutputPreview(), outputFile);
 
             displaySuccessResult(result, inputFile, outputFile);
         } catch (MorseException e) {
@@ -102,7 +104,7 @@ public class MorseApp {
 
             String content = fileService.readFile(inputFile);
             ProcessingResult result = morseCoder.decodeText(content);
-            fileService.writeFile(getOutputFromResult(result), outputFile);
+            fileService.writeFile(result.getOutputPreview(), outputFile);
 
             displaySuccessResult(result, inputFile, outputFile);
 
@@ -146,14 +148,5 @@ public class MorseApp {
         System.out.println("• Поддерживаются русские буквы, цифры, базовые знаки препинания");
     }
 
-    private String getOutputFromResult(ProcessingResult result) {
-        // Извлекаем результат из превью (упрощенная логика)
-        String preview = result.getOutputPreview();
-        if (preview.endsWith("...")) {
-            // В реальной реализации нужно хранить полный результат
-            return preview.replace("...", "");
-        }
-        return preview;
-    }
 
 }
