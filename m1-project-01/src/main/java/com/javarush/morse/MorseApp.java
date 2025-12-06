@@ -131,7 +131,7 @@ public class MorseApp {
     }
 
     private void displayError(String message) {
-        System.out.println("\n Ошибка: " + message);
+        System.out.println("\n Ошибка: " + message + "\n");
     }
 
     private void showAlphabetInfo() {
