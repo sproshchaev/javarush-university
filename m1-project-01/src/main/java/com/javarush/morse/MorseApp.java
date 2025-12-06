@@ -1,10 +1,12 @@
 package com.javarush.morse;
 
+import com.javarush.morse.core.Alphabet;
 import com.javarush.morse.core.MorseCoder;
 import com.javarush.morse.exception.MorseException;
 import com.javarush.morse.model.ProcessingResult;
 import com.javarush.morse.service.FileService;
 
+import java.util.Map;
 import java.util.Scanner;
 
 /**
@@ -117,6 +119,7 @@ public class MorseApp {
         System.out.print("Введите путь к исходному файлу (с кодом Морзе) и его имя: ");
         return scanner.nextLine().trim();
     }
+
     private String getOutputFilePath() {
         System.out.print("Введите путь для результата и имя файла в который запишем результат: ");
         return scanner.nextLine().trim();
@@ -139,7 +142,44 @@ public class MorseApp {
     private void showAlphabetInfo() {
         System.out.println("\n АЛФАВИТ МОРЗЕ");
         System.out.println("────────────────");
-        System.out.println("Примеры кодирования:");
+
+        System.out.println("\nРУССКИЕ БУКВЫ:");
+        int count = 0;
+        for (char c = 'А'; c <= 'Я'; c++) {
+            String morse = Alphabet.TEXT_TO_MORSE.get(c);
+            if (morse != null) {
+                System.out.printf("  %c → %s%n", c, morse);
+                count++;
+            }
+        }
+        System.out.println("В словаре всего " + count + " РУССКИХ БУКВ");
+
+        System.out.println("\nЦИФРЫ:");
+        count = 0;
+        for (char c = '0'; c <= '9'; c++) {
+            String morse = Alphabet.TEXT_TO_MORSE.get(c);
+            if (morse != null) {
+                System.out.printf("  %c → %s%n", c, morse);
+                count++;
+            }
+        }
+        System.out.println("В словаре всего " + count + " ЦИФР");
+
+
+        System.out.println("\nЗНАКИ ПРЕПИНАНИЯ И СИМВОЛЫ:");
+        // Выводим остальные символы (не буквы и не цифры)
+        count = 0;
+        for (Map.Entry<Character, String> entry : Alphabet.TEXT_TO_MORSE.entrySet()) {
+            char c = entry.getKey();
+            if (!(c >= 'А' && c <= 'Я') && !(c >= '0' && c <= '9')) {
+                String displayChar = c == ' ' ? "[ПРОБЕЛ]" : String.valueOf(c);
+                System.out.printf("  %s → %s%n", displayChar, entry.getValue());
+                count++;
+            }
+        }
+        System.out.println("В словаре всего " + count + " ЗНАКОВ ПРЕПИНАНИЯ И СИМВОЛОВ");
+
+        System.out.println("\nПримеры кодирования:");
         System.out.println("  'SOS' → ... --- ...");
         System.out.println("  'ПРИВЕТ' → .--. .-. .. .-- . -");
         System.out.println("\nПравила:");
