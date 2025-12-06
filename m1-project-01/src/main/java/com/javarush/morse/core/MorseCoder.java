@@ -9,8 +9,8 @@ public class MorseCoder {
     private final ValidationService validationService;
 
 
-    public MorseCoder(ValidationService validationService) {
-        this.validationService = validationService;
+    public MorseCoder() {
+        this.validationService = new ValidationService();
     }
 
     public ProcessingResult encodeText(String text) throws MorseException {

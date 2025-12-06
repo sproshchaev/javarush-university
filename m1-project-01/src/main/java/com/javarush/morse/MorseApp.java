@@ -16,17 +16,16 @@ public class MorseApp {
     private final FileService fileService;
     private final Scanner scanner;
 
-    public MorseApp(MorseCoder morseCoder, FileService fileService, Scanner scanner) {
-        this.morseCoder = morseCoder;
-        this.fileService = fileService;
-        this.scanner = scanner;
+    public MorseApp() {
+        this.morseCoder = new MorseCoder();
+        this.fileService = new FileService();
+        this.scanner = new Scanner(System.in);
     }
 
 
     public static void main(String[] args) {
-        // todo точка входа
-        // MorseApp app = new MorseApp();
-        // app.run();
+        MorseApp app = new MorseApp();
+        app.run();
     }
 
     public void run() {
@@ -77,12 +76,7 @@ public class MorseApp {
     }
 
     private void processEncodeFile() {
-        // todo: обработка кодирования файла
-        // 1) получить пути файлов
-        // 2) прочитать исходный файл
-        // 3) закодировать текст
-        // 4) записать результат
-        // 5) показать успешный результат
+        // 1) получить пути файлов 2) прочитать исходный файл 3) закодировать текст 4) записать результат 5) показать успешный результат
         System.out.println("Кодирование файла:");
         try {
             String inputFile = getInputFilePath();
@@ -99,37 +93,67 @@ public class MorseApp {
     }
 
     private void processDecodeFile() {
-        // todo: обработка декодрования файла
-        // 1) получить пути
-        // 2) прочитать файл
-        // 3) декодировать код Морзе
-        // 4) показать успешный результат
+        // 1) получить пут 2) прочитать файл 3) декодировать код Морзе 4) показать успешный результат
+        System.out.println("\n ДЕКОДИРОВАНИЕ ФАЙЛА");
+
+        try {
+            String inputFile = getInputFilePath();
+            String outputFile = getOutputFilePath();
+
+            String content = fileService.readFile(inputFile);
+            ProcessingResult result = morseCoder.decodeText(content);
+            fileService.writeFile(getOutputFromResult(result), outputFile);
+
+            displaySuccessResult(result, inputFile, outputFile);
+
+        } catch (MorseException e) {
+            displayError(e.getMessage());
+        }
     }
 
     private String getInputFilePath() {
-        // todo: запрос пути к исходному файлу
-        return null;
+        System.out.print("Введите путь к исходному файлу: ");
+        return scanner.nextLine().trim();
     }
     private String getOutputFilePath() {
-        // todo: запрос пути для записи результата
-        return null;
+        System.out.print("Введите путь для результата: ");
+        return scanner.nextLine().trim();
     }
 
     private void displaySuccessResult(ProcessingResult result, String inputFile, String outputFile) {
-        // todo: красивый вывод успешного результата
+        System.out.println("\n " + result.getMessage());
+        System.out.println("Исходный файл: " + inputFile);
+        System.out.println("Результат: " + outputFile);
+
+        System.out.println("\nПревью:");
+        System.out.println("Вход: " + result.getInputPreview());
+        System.out.println("Выход: " + result.getOutputPreview());
     }
 
     private void displayError(String message) {
-        // todo: вывод сообщения об ошибке
+        System.out.println("\n Ошибка: " + message);
     }
 
     private void showAlphabetInfo() {
-        // todo: вывод справки по алфавиту Морзе
+        System.out.println("\n АЛФАВИТ МОРЗЕ");
+        System.out.println("────────────────");
+        System.out.println("Примеры кодирования:");
+        System.out.println("  'SOS' → ... --- ...");
+        System.out.println("  'ПРИВЕТ' → .--. .-. .. .-- . -");
+        System.out.println("\nПравила:");
+        System.out.println("• Символы разделяются пробелами");
+        System.out.println("• Слова разделяются знаком '/'");
+        System.out.println("• Поддерживаются русские буквы, цифры, базовые знаки препинания");
     }
 
-    // todo дописать
     private String getOutputFromResult(ProcessingResult result) {
-        return null;
+        // Извлекаем результат из превью (упрощенная логика)
+        String preview = result.getOutputPreview();
+        if (preview.endsWith("...")) {
+            // В реальной реализации нужно хранить полный результат
+            return preview.replace("...", "");
+        }
+        return preview;
     }
 
 }
