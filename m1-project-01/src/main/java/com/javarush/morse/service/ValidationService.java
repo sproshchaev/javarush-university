@@ -18,7 +18,7 @@ public class ValidationService {
         for (int i = 0; i < upperText.length(); i++) {
             char c = upperText.charAt(i);
             if (!Alphabet.TEXT_TO_MORSE.containsKey(c)) {
-                throw new MorseException(String.format("Неподдерживаемый символ 'c' в позиции %d", c, (i + 1)));
+                throw new MorseException(String.format("Неподдерживаемый символ '%c' в позиции %d", c, (i + 1)));
             }
         }
     }

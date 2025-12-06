@@ -114,11 +114,11 @@ public class MorseApp {
     }
 
     private String getInputFilePath() {
-        System.out.print("Введите путь к исходному файлу: ");
+        System.out.print("Введите путь к исходному файлу (с кодом Морзе) и его имя: ");
         return scanner.nextLine().trim();
     }
     private String getOutputFilePath() {
-        System.out.print("Введите путь для результата: ");
+        System.out.print("Введите путь для результата и имя файла в который запишем результат: ");
         return scanner.nextLine().trim();
     }
 
