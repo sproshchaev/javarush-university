@@ -53,6 +53,11 @@
         <module>m2-level-18</module>
         <module>m2-level-19</module>
         <module>m4-level-07</module>
+        <module>m4-level-08</module>
+        <module>m4-level-09</module>
+        <module>m4-level-10</module>
+        <module>m4-level-11</module>
+        <module>m4-level-12</module>
     </modules>
 
     <properties>
