@@ -58,6 +58,24 @@
         <module>m4-level-10</module>
         <module>m4-level-11</module>
         <module>m4-level-12</module>
+        <module>m4-level-13</module>
+        <module>m4-level-14</module>
+        <module>m4-level-15</module>
+        <module>m4-level-16</module>
+        <module>m4-level-17</module>
+        <module>m4-level-18</module>
+        <module>m4-level-19</module>
+        <module>m4-level-20</module>
+        <module>m3-level-01</module>
+        <module>m3-level-02</module>
+        <module>m3-level-03</module>
+        <module>m3-level-04</module>
+        <module>m3-level-05</module>
+        <module>m3-level-08</module>
+        <module>m3-level-12</module>
+        <module>m3-level-13</module>
+        <module>m3-level-14</module>
+        <module>m3-level-16</module>
     </modules>
 
     <properties>
