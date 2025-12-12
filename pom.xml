@@ -42,6 +42,7 @@
         <module>m2-level-05</module>
         <module>m2-level-06</module>
         <module>m2-level-07</module>
+        <module>m2-level-08</module>
     </modules>
 
     <properties>
