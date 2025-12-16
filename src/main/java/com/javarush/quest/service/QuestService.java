@@ -36,7 +36,7 @@ public class QuestService {
         // Третий шаг
         steps.put("captain", new QuestStep(
                 "captain",
-                "Ты поднялся на мостик. ты кто?",
+                "Ты поднялся на мостик. Ты кто?",
                 "Рассказать правду о себе",
                 "Солгать о себе",
                 "win",
@@ -63,7 +63,7 @@ public class QuestService {
                 null
         ));
 
-        // ты не пошел на переговоры
+        // Ты не пошел на переговоры
         steps.put("lose2", new QuestStep(
                 "lose2",
                 "Ты не пошел на переговоры. Поражение!",
@@ -73,7 +73,7 @@ public class QuestService {
                 null
         ));
 
-        // твоя ложь разоблачена
+        // Твоя ложь разоблачена
         steps.put("lose3", new QuestStep(
                 "lose3",
                 "Твоя ложь разоблачена. Поражение!",
@@ -91,7 +91,7 @@ public class QuestService {
 
     public boolean isFinalStep(String stepId) {
         QuestStep step = steps.get(stepId);
-        return step != null && step.getOption1() != null;
+        return step != null && step.getOption1() == null;
     }
 
 }
