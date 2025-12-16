@@ -8,26 +8,21 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>HelloQuest</title>
+    <title>HelloQuest (||) начало</title>
 </head>
 <body>
 
-<!-- 1. заголовок страницы -->
-<h1>Добро пожаловать на борт!</h1>
-<p>Вы стоите в космическом порту. Принять вызов?</p>
+<h2>Пролог</h2>
+<p>Текст предыстории ... </p>
 
-<!-- 2. Блок для отображения сообщений об ошибках -->
-<% if (request.getAttribute("message") != null) { %>
-<p style="color: red;><%= request.getAttribute("message")%> </p>
-<% } %>
+<p>Как ваше имя?</p>
 
-<!-- 3. Форма для отправки ответа -->
-<form action="game" method="post">
-   <!-- Кнопки для выбора ответа -->
-   <input type="radio" name="answer" value="accept">Принять вызов<br>
-   <input type="radio" name="answer" value="decline">Отклонить вызов<br>
-   <input type="submit" value="Ответить">
+<form action="start" method="post">
+    <label for="playerName">"Представьтесь, командир:"</label><br>
+    <input type="text" id="playerName" name = "playerName"
+           placeholder="Введите ваше имя" required
+           value="${sessionScope.playerName != null ? sessionScope.playerName : ''}"><br><br>
+    <button type="submit">Начать приключение</button>
 </form>
-
 </body>
 </html>
