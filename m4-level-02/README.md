@@ -31,7 +31,7 @@
 
 **Команда для терминала:**
 ```bash
-docker run --name mysql-sakila -e MYSQL_ROOT_PASSWORD=YOUR_PASSWORD -d -p 3306:3306 restsql/mysql-sakila
+docker run --name mysql-sakila -e MYSQL_ROOT_PASSWORD=sakila -d -p 3306:3306 restsql/mysql-sakila
 ```
 
 #### Способ 2: Ручная установка

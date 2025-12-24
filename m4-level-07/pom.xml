@@ -17,4 +17,13 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
+    <!-- ДОБАВЛЯЕМ ЗАВИСИМОСТЬ JDBC-ДРАЙВЕРА ДЛЯ MYSQL -->
+    <dependencies>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.33</version> <!-- Актуальная версия -->
+        </dependency>
+    </dependencies>
+
 </project>
