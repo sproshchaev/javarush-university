@@ -7,11 +7,11 @@ https://dev.mysql.com/doc/sakila/en/sakila-structure.html
 2. Скачать базу данных (Version 8.0):
 https://dev.mysql.com/doc/index-other.html
 
-3. Готовый Docker-образ:
-https://www.docker.com/products/docker-desktop/
+3. Готовый Docker-образ MySQL 5.7:
+https://hub.docker.com/r/restsql/mysql-sakila/
 
 4. Docker Desktop:
-https://hub.docker.com/r/restsql/mysql-sakila/
+https://www.docker.com/products/docker-desktop/
 
 #### Команда для терминала
 ```bash
