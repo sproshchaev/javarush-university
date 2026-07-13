@@ -1,12 +1,16 @@
 package com.javarush.filmcache.domain;
 
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(schema = "sakila", name = "actor")
-@Data // TODO отрефакторить!
+@Getter
+@Setter
 public class Actor {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,6 +24,15 @@ public class Actor {
     private String lastName;
 
     @Column(name = "last_update")
-    private String lastUpdate;
+    private LocalDateTime lastUpdate;
 
+    @Override
+    public String toString() {
+        return "Actor{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", lastUpdate='" + lastUpdate + '\'' +
+                '}';
+    }
 }

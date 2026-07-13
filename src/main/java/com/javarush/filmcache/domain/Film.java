@@ -20,9 +20,9 @@ public class Film {
     private Integer releaseYear;
 
     @Column(name = "rental_rate")
-    private BigDecimal rentaleRate;
+    private BigDecimal rentalRate;
 
-    private BigDecimal rating;
+    private String rating;
 
     @ManyToMany
     @JoinTable(

@@ -38,9 +38,9 @@ public class FilmDao {
     }
 
     // TODO Число фильмов
-    public long getTotalCount() {
-        Query<Long> query = sessionFactory.getCurrentSession().createQuery(
-                "select count(f) from Film f", Long.class);
+    public Integer getTotalCount() {
+        Query<Integer> query = sessionFactory.getCurrentSession().createQuery(
+                "select count(f) from Film f", Integer.class);
         return query.uniqueResult();
     }
 

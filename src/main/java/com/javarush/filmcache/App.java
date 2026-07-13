@@ -1,9 +1,11 @@
 package com.javarush.filmcache;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.javarush.filmcache.dao.FilmDao;
 import com.javarush.filmcache.domain.Actor;
 import com.javarush.filmcache.domain.Category;
 import com.javarush.filmcache.domain.Film;
+import com.javarush.filmcache.redis.FilmDetail;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -19,6 +21,7 @@ public class App {
 
     private final SessionFactory sessionFactory;
     private final FilmDao filmDao;
+    private final ObjectMapper objectMapper = new ObjectMapper();
 
     public App() {
         this.sessionFactory = prepareRelationDb();
@@ -30,6 +33,11 @@ public class App {
         List<Film> films = app.fetchAllFilms();
         System.out.println("Total films count: " + films.size());
         app.shutdown();
+    }
+
+    // TODO Метод трансформации
+    private List<FilmDetail> transformData(List<Film> films) {
+        return null;
     }
 
     // TODO получить все фильмы
