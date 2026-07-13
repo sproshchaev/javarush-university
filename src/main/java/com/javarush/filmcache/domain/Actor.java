@@ -6,7 +6,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(schema = "sakila", name = "actor")
-@Data
+@Data // TODO отрефакторить!
 public class Actor {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

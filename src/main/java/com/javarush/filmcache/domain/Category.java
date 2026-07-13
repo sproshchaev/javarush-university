@@ -6,7 +6,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(schema = "sakila", name = "category")
-@Data
+@Data // TODO отрефакторить!
 public class Category {
 
     @Id
