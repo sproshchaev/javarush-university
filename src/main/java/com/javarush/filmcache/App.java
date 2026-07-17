@@ -17,6 +17,7 @@ import org.hibernate.cfg.Configuration;
 import org.hibernate.cfg.Environment;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.Properties;
 import java.util.stream.Collectors;
 
@@ -48,6 +49,13 @@ public class App {
         // (3) Записали в Redis в том формате, который для него удобен
         app.pushToRedis(details);
         System.out.println("Количество ключей в Redis: " + app.getCountFromRedis());
+
+        // (4) Прогон тестов (простой вариант)
+        // Создать один набор ключей из 1000 значений
+        // testRedisData()
+        // testMySqlData()
+
+
         // Завершение приложения
         app.shutdown();
     }
@@ -120,6 +128,33 @@ public class App {
     private Long getCountFromRedis() {
         try (StatefulRedisConnection<String, String> connection = redisClient.connect()) {
             return connection.sync().dbsize();
+        }
+    }
+
+    // TODO testRedisData
+    private void testRedisData(List<Integer> ids) {
+        try (StatefulRedisConnection<String, String> connection = redisClient.connect()) {
+            RedisStringCommands<String, String> stringCommands = connection.sync();
+            for (Integer id : ids) {
+                // Получить из Redis
+                String json = stringCommands.get("film:" + id);
+                objectMapper.readValue(json, FilmDetail.class);
+            }
+        } catch (JsonProcessingException e ) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    // TODO testMySqlData
+    private void testMySqlData(List<Integer> ids) {
+        try (Session session = sessionFactory.getCurrentSession()) {
+            session.beginTransaction();
+            for (Integer id : ids) {
+                Optional<Film> film = filmDao.getById(id);
+                film.get().getActors().size();  // lazy load
+                film.get().getCategories().size();
+            }
+            session.getTransaction().commit();
         }
     }
 
