@@ -1,10 +1,15 @@
 package com.javarush.filmcache.domain;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.Set;
 
 @Entity
+@Getter
+@Setter
 @Table(schema = "sakila", name = "film")
 public class Film {
     @Id
@@ -22,6 +27,7 @@ public class Film {
     @Column(name = "rental_rate")
     private BigDecimal rentalRate;
 
+    // TODO В учебном дампе есть enum в БД (country.continent), возьмем аналогичный и напишем пример
     private String rating;
 
     @ManyToMany

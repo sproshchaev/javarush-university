@@ -9,7 +9,7 @@ import java.util.List;
 public class FilmDetail {
 
     // id
-    private Integer id;
+    private Long id;
     // title
     private String title;
     // description
@@ -19,9 +19,10 @@ public class FilmDetail {
     // rentalRate
     private BigDecimal rentalRate;
     // rating
-    private BigDecimal rating;
+    private String rating;
     // actor
     private List<String> actors;
     // categories
     private List<String> categories;
+
 }
