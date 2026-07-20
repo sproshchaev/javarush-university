@@ -50,15 +50,37 @@ public class App {
         app.pushToRedis(details);
         System.out.println("Количество ключей в Redis: " + app.getCountFromRedis());
 
-        // (4) Прогон тестов (простой вариант)
-        // Создать один набор ключей из 1000 значений
-        // testRedisData()
-        // testMySqlData()
+        // Закрыть текущую сессию, чтобы запросы шли в БД
+        app.closeCurrentSession();
 
+        // (4) Прогон тестов (простой вариант)
+
+        // Создать один набор ключей из 1000 значений
+        List<Integer> ids = List.of(1, 20, 45, 100, 250, 300, 400, 500, 600, 700);
+
+        long startRedis = System.currentTimeMillis();
+        app.testRedisData(ids);
+        long endRedis = System.currentTimeMillis();
+
+        long startMySql = System.currentTimeMillis();
+        app.testMySqlData(ids);
+        long endMySql = System.currentTimeMillis();
+
+        System.out.println("Redis time: " + (endRedis - startRedis) + " ms");
+
+        System.out.println("MySQL time: " + (endMySql - startMySql) + " ms");
 
         // Завершение приложения
         app.shutdown();
     }
+
+    // Закрываем текущую сессию
+    private void closeCurrentSession() {
+        if (sessionFactory.getCurrentSession() != null) {
+            sessionFactory.getCurrentSession().close();
+        }
+    }
+
 
     // См. pom.xml -> Lettuce (Redis клиент)
     private RedisClient getRedisClient() {
@@ -188,7 +210,6 @@ public class App {
                 .buildSessionFactory();
     }
 
-    //  TODO Завершение приложения
     private void shutdown() {
         if (sessionFactory != null) {
             sessionFactory.close();

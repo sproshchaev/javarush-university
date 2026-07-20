@@ -9,7 +9,7 @@ import java.util.List;
 public class FilmDetail {
 
     // id
-    private Long id;
+    private Integer id;
     // title
     private String title;
     // description
