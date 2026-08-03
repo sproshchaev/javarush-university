@@ -1,0 +1,10 @@
+server:
+  port: 8080
+
+app:
+  greeting:
+    message: Welcome to our application!
+  api:
+    url: https://api.example.com
+    key: "secret-key-123"
+    timeout: 5000

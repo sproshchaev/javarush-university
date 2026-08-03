@@ -12,7 +12,7 @@
     <artifactId>m5-level-04</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>m5-level-04</name>
-    <description>Demo project for Spring Boot</description>
+    <description>Демо. Уровень 4: Углубленное изучение Spring Boot (Spring Boot 4)</description>
     <url/>
     <licenses>
         <license/>
@@ -30,6 +30,9 @@
         <java.version>17</java.version>
     </properties>
     <dependencies>
+        <!-- Пример 1: один стартер приносит семейство согласованных библиотек.
+             В Spring Boot 4 веб-стартер сменил имя: spring-boot-starter-web устарел,
+             его заменяет spring-boot-starter-webmvc. -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-webmvc</artifactId>
@@ -37,8 +40,21 @@
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-webmvc-test</artifactId>
-            <scope>test</scope>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+
+        <!-- optional-зависимость: в Spring Boot 4 в uber-jar не попадает (пример 9). -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <scope>runtime</scope>
+            <optional>true</optional>
         </dependency>
     </dependencies>
 

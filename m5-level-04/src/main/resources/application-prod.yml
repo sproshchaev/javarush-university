@@ -1,0 +1,6 @@
+server:
+  port: 8082
+
+app:
+  greeting:
+    message: Hello from PROD
