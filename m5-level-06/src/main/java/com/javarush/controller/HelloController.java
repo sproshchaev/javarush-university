@@ -35,7 +35,7 @@ public class HelloController {
             @RequestParam String email1,
             @RequestParam String email2) {
 
-        userService.updateUserEmails(id1, id2, email1, email2);
+        userService.updateUserEmails(id1, id2, email1, email2, false);
         return ResponseEntity.ok("Emails updated successfully");
     }
 
@@ -59,7 +59,7 @@ public class HelloController {
     @PostMapping("/register")
     public ResponseEntity<String> register(@RequestParam String name, @RequestParam String email) {
         try {
-            registrationService.registerUser(name, email);
+            registrationService.registerUser(name, email, false);
             return ResponseEntity.ok("User registered successfully");
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
