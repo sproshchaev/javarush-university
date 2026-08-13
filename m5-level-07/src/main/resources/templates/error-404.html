@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Ресурс не найден</title>
+</head>
+<body>
+<h1>404 — ресурс не найден</h1>
+
+<p th:text="${errorMessage}">Здесь будет текст ошибки</p>
+
+<p><a th:href="@{/users-web/list}">Вернуться к списку</a></p>
+</body>
+</html>

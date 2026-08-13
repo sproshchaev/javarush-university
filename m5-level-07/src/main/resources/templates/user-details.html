@@ -1,13 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Детали пользователя</title>
 </head>
 <body>
-    <h1>Пользователь</h1>
-    <p><strong>ID:</strong> <span th:text="${user.id}">1</span></p>
-    <p><strong>Имя:</strong> <span th:text="${user.name}">Имя</span></p>
-    <p><strong>Почта:</strong> <span th:text="${user.email}">email</span></p>
+<h1>Пользователь</h1>
+
+<p><strong>ID:</strong> <span th:text="${user.id}">1</span></p>
+<p><strong>Имя:</strong> <span th:text="${user.name}">Имя</span></p>
+<p><strong>Почта:</strong> <span th:text="${user.email}">email</span></p>
+
+<p><a th:href="@{/users-web/list}">Назад к списку</a></p>
 </body>
 </html>

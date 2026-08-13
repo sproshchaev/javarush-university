@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Новый пользователь</title>
+</head>
+<body>
+<h1>Новый пользователь</h1>
+
+<form action="#" th:action="@{/users-web/create}" th:object="${user}" method="post">
+    <p>Имя: <input type="text" th:field="*{name}"></p>
+    <p>Почта: <input type="text" th:field="*{email}"></p>
+    <button type="submit">Сохранить</button>
+</form>
+
+<p><a th:href="@{/users-web/list}">Назад к списку</a></p>
+</body>
+</html>

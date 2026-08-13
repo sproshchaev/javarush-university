@@ -1,32 +1,43 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Список пользователей</title>
 </head>
 <body>
-    <h1>Список пользователей</h1>
-    <form th:action="@{/users-web/list}" method="get">
-        <label>Поиск по имени:
-            <input type="text" name="name" th:value="${searchName}">
-        </label>
-        <button type="submit">Найти</button>
-        <a th:href="@{/users-web/list}">Отмена</a>
-    </form>
+<h1>Список пользователей</h1>
 
-    <table>
+<p>Всего в базе: <span th:text="${totalUsers}">0</span></p>
+
+<form th:action="@{/users-web/list}" method="get">
+    <label>Поиск по имени:
+        <input type="text" name="name" th:value="${searchName}">
+    </label>
+    <button type="submit">Найти</button>
+    <a th:href="@{/users-web/list}">Отмена</a>
+</form>
+
+<div th:if="${!users.isEmpty()}">
+    <table border="1">
         <tr>
             <th>ID</th>
             <th>Имя</th>
             <th>Email</th>
+            <th></th>
         </tr>
         <tr th:each="user : ${users}">
-             <td th:text="${user.id}"></td>
-             <td th:text="${user.name}"></td>
-             <td th:text="${user.email}"></td>
+            <td th:text="${user.id}">1</td>
+            <td th:text="${user.name}">Alice</td>
+            <td th:text="${user.email}">alice@example.com</td>
+            <td><a th:href="@{/users-web/view/{id}(id=${user.id})}">Детали</a></td>
         </tr>
     </table>
+</div>
 
+<div th:if="${users.isEmpty()}">
+    <p>Пользователи не найдены.</p>
+</div>
 
+<p><a th:href="@{/users-web/new}">Добавить пользователя</a></p>
 </body>
 </html>
