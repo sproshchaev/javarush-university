@@ -9,6 +9,7 @@
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
     <modules>
+        <module>m1-lecture-01</module>
         <module>m1-lecture-03</module>
         <module>m1-lecture-05</module>
         <module>m1-lecture-06</module>
