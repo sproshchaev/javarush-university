@@ -2,31 +2,33 @@
 <html lang="ru" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Создание пользователя</title>
+    <title>Создание пользователя (без BindingResult)</title>
 </head>
 <body>
-    <h1>Новый пользователь</h1>
+    <h1>Новый пользователь — вариант без BindingResult</h1>
 
-    <form th:action="@{/users-web/create}" th:object="${userDto}" method="post">
+    <p style="color: red">
+        Демонстрационная форма. Контроллер не принимает BindingResult,
+        поэтому при ошибке проверки будет выброшено исключение, а введённые данные пропадут.
+    </p>
+
+    <!-- Блоков #fields.hasErrors здесь намеренно нет: до отрисовки страницы дело не дойдёт -->
+    <form th:action="@{/users-unsafe/create}" th:object="${userDto}" method="post">
       <div>
         <label for="name">Имя:</label>
         <input type="text" id="name" th:field="*{name}"/>
-        <div th:if="${#fields.hasErrors('name')}" th:errors="*{name}" style="color: red"></div>
       </div>
       <div>
         <label for="email">Email:</label>
         <input type="text" id="email" th:field="*{email}"/>
-        <div th:if="${#fields.hasErrors('email')}" th:errors="*{email}" style="color: red"></div>
       </div>
       <div>
         <label for="age">Возраст:</label>
         <input type="text" id="age" th:field="*{age}"/>
-        <div th:if="${#fields.hasErrors('age')}" th:errors="*{age}" style="color: red"></div>
       </div>
       <div>
         <label for="phone">Телефон:</label>
         <input type="text" id="phone" th:field="*{phone}"/>
-        <div th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}" style="color: red"></div>
       </div>
 
       <div>

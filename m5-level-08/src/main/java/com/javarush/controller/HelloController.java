@@ -48,7 +48,8 @@ public class HelloController {
     @PostMapping("/users")
     public ResponseEntity<User> createUser(@Valid @RequestBody CreateUserDto createUserDto) {
         // Преобразовать DTO в сущность
-        User user = new User(createUserDto.getName(), createUserDto.getEmail());
+        User user = new User(createUserDto.getName(), createUserDto.getEmail(),
+                             createUserDto.getAge(), createUserDto.getPhone());
         User savedUser = userRepository.save(user);
         return ResponseEntity
                 .status(HttpStatus.CREATED)

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Список пользователей</title>
@@ -19,22 +19,28 @@
         <a th:href="@{/users-web/list}">Отмена</a>
     </form>
 
-    <table>
+    <table border="1">
         <tr>
             <th>ID</th>
             <th>Имя</th>
             <th>Email</th>
+            <th>Возраст</th>
+            <th>Телефон</th>
+            <th></th>
         </tr>
         <tr th:each="user : ${users}">
              <td th:text="${user.id}"></td>
              <td th:text="${user.name}"></td>
              <td th:text="${user.email}"></td>
+             <td th:text="${user.age}"></td>
+             <td th:text="${user.phone}"></td>
              <td>
                 <a th:href="@{/users-web/{id}(id=${user.id})}">Подробнее</a>
              </td>
         </tr>
     </table>
 
+    <p th:if="${users.isEmpty()}">Пользователи не найдены.</p>
 
 </body>
 </html>

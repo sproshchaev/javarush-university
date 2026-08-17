@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Детали пользователя</title>
@@ -9,5 +9,9 @@
     <p><strong>ID:</strong> <span th:text="${user.id}">1</span></p>
     <p><strong>Имя:</strong> <span th:text="${user.name}">Имя</span></p>
     <p><strong>Почта:</strong> <span th:text="${user.email}">email</span></p>
+    <p><strong>Возраст:</strong> <span th:text="${user.age}">30</span></p>
+    <p><strong>Телефон:</strong> <span th:text="${user.phone}">+79001234567</span></p>
+
+    <p><a th:href="@{/users-web/list}">Назад к списку</a></p>
 </body>
 </html>
