@@ -77,6 +77,16 @@
             <artifactId>spring-boot-starter-webmvc-test</artifactId>
             <scope>test</scope>
         </dependency>
+
+        <!-- В Spring Boot 4.x стартеры разделены по модулям: аннотация @DataJpaTest
+             и класс TestEntityManager больше не входят в общий тестовый стартер,
+             их приносит отдельный spring-boot-starter-data-jpa-test.
+             В Spring Boot 3.x и ниже достаточно было одного spring-boot-starter-test. -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa-test</artifactId>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 
     <build>
