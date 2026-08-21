@@ -1,11 +1,15 @@
 package com.javarush.example;
 
-public class Slide02_IfElseExample {
+/**
+ * Слайд 5. Пример if-else: выполняется ровно одна ветка.
+ */
+public class Slide05_IfElseExample {
     public static void main(String[] args) {
+
         int age = 17;
 
         if (age < 18) {
-            System.out.println("Ты ещё ребенок");
+            System.out.println("Ты еще ребенок");
             System.out.println("Не спорь со взрослыми");
         } else {
             System.out.println("Вы уже взрослый");
