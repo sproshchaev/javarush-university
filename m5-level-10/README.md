@@ -30,6 +30,18 @@ curl -s http://localhost:8080/users | jq .
 curl -X POST "http://localhost:8080/register?name=John&email=john@example.com"
 ```
 
+ДОБАВЛЕНО ДЛЯ ДЕМО: некорректные данные — статус 400 и список замечаний
+```bash
+curl -i -X POST "http://localhost:8080/users" \
+-H "Content-Type: application/json" \
+-d '{"name": "", "email": "not-an-email"}'
+```
+
+Несуществующий пользователь — статус 404
+```bash
+curl -i -s "http://localhost:8080/users/999"
+```
+
 Создание пользователя через POST
 ```bash
 curl -i -X POST "http://localhost:8080/users" \

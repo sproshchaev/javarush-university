@@ -5,12 +5,15 @@ import com.javarush.dto.UpdateUserDto;
 import com.javarush.dto.UserDto;
 import com.javarush.entity.User;
 import com.javarush.exception.BusinessException;
+import com.javarush.exception.ResourceNotFoundException;
 import com.javarush.repository.UserRepository;
 import com.javarush.service.RegistrationService;
 import com.javarush.service.UserService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
@@ -75,7 +78,13 @@ public class HelloController {
 
     @PostMapping("/users")
     // @ResponseStatus(HttpStatus.CREATED) - заменяет ResponseEntity.created
-    public ResponseEntity<UserDto> createUser(@RequestBody CreateUserDto createUserDto) {
+    // ДОБАВЛЕНО ДЛЯ ДЕМО: @Valid и BindingResult
+    public ResponseEntity<?> createUser(@Valid @RequestBody CreateUserDto createUserDto,
+                                        BindingResult bindingResult) {
+
+        if (bindingResult.hasErrors()) {
+            return ResponseEntity.badRequest().body(bindingResult.getAllErrors());
+        }
 
         User user = new User(createUserDto.getName(),
                 createUserDto.getEmail());
@@ -98,14 +107,16 @@ public class HelloController {
     @GetMapping("/users/{id}")
     public UserDto getUserById(@PathVariable Long id) {
         User user = userRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("User not found with id: " + id));
+                // ДОБАВЛЕНО ДЛЯ ДЕМО: было new RuntimeException(...)
+                .orElseThrow(() -> new ResourceNotFoundException("User not found with id: " + id));
         return convertToDto(user);
     }
 
     @PutMapping("/users/{id}")
     public ResponseEntity<UserDto> updateUser(@PathVariable Long id, @RequestBody UpdateUserDto updateUserDto) {
         User existingUser = userRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("User not found with id: " + id));
+                // ДОБАВЛЕНО ДЛЯ ДЕМО: было new RuntimeException(...)
+                .orElseThrow(() -> new ResourceNotFoundException("User not found with id: " + id));
 
         existingUser.setName(updateUserDto.getName());
         existingUser.setEmail(updateUserDto.getEmail());
