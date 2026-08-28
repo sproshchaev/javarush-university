@@ -5,19 +5,19 @@ public class Slide06_ArrayLengthExample {
     public static void main(String[] args) {
         System.out.println("=== Длина массива ===\n");
 
-        // Создаём массив из 10 элементов
-        int[] array = new int[10];
+        // Создаём массив из 5 элементов
+        int[] array = new int[5];
 
         // Выводим длину массива
         System.out.println("Длина массива: " + array.length);
 
-        // Пример условия: если длина меньше 10 — создаём новый
+        // Пример условия: длина массива участвует в проверке
         if (array.length < 10) {
             array = new int[10];
-            System.out.println("Создан массив из 10 элементов.");
+            System.out.println("Массив был короче 10 — создан новый на 10 элементов.");
         } else {
             array = new int[20];
-            System.out.println("Создан массив из 20 элементов.");
+            System.out.println("Массив был не короче 10 — создан новый на 20 элементов.");
         }
 
         System.out.println("Новая длина массива: " + array.length + "\n");

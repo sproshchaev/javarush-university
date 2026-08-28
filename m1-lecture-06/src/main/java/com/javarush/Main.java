@@ -6,8 +6,6 @@ import java.awt.*;
 import java.net.URI;
 import java.net.URLEncoder;
 import java.util.Arrays;
-import java.util.Scanner;
-import java.util.SortedMap;
 
 /**
  * JavaRush-University
@@ -24,37 +22,9 @@ public class Main {
 
         System.out.println(Arrays.toString(target));
 
-
-
-        // browse(new LJV(), boolArray);
-
+        // Обе переменные ссылаются на один объект в куче — видно на графе:
+        // browse(new LJV(), source);
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     public static void browse(LJV ljv, Object obj) {
         try {
