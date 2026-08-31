@@ -5,7 +5,6 @@ import com.javarush.client.UserFeignClient;
 import com.javarush.dto.UserDto;
 import com.javarush.entity.User;
 import com.javarush.exception.BusinessException;
-import com.javarush.repository.UserRepository;
 import com.javarush.service.RegistrationService;
 import com.javarush.service.UserService;
 import lombok.RequiredArgsConstructor;
@@ -21,7 +20,6 @@ import java.util.Optional;
 // @AllArgsConstructor
 public class HelloController {
 
-    private final UserRepository userRepository;
     private final UserService userService;
     private final RegistrationService registrationService;
     private final UserClient userClient;

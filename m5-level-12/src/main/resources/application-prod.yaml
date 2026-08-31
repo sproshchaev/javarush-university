@@ -1,0 +1,6 @@
+server:
+  port: 9090
+
+app:
+  feign:
+    base-url: http://product-service:8081

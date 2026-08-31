@@ -15,12 +15,16 @@ spring:
     console:
       enabled: true
       path: /h2-console
-      settings:
-        web-allow-others: true
 
   jpa:
     hibernate:
        ddl-auto: update
+
+# Собственное свойство приложения: базовый адрес внешнего сервиса.
+# Читается в UserClient через @Value и в AppConfig при сборке Feign-клиента.
+app:
+  feign:
+    base-url: http://localhost:8080
 
 management:
   endpoints:
