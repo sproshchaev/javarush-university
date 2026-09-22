@@ -13,8 +13,6 @@ public class VarAndDiamondDemo {
 
         System.out.println(list);
 
-
-
     }
 
 }
