@@ -58,7 +58,7 @@ public class EnumDeclareDemo {
 
         for (Day dayInFor : Day.values()) {
             if (dayInFor.isWeekend()) {
-                System.out.println(day + ": выходной"); // dayInFor!!!
+                System.out.println(dayInFor + ": выходной");
             }
         }
 
