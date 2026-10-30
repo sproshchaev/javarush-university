@@ -10,7 +10,7 @@ import java.util.Map;
 public class Alphabet {
 
     // TEXT_TO_MORSE
-    private static final Map<Character, String> TEXT_TO_MORSE = new LinkedHashMap<>();
+    private static final Map<Character, String> TEXT_TO_MORSE = new HashMap<>();
     // MORSE_TO_TEXT
     private static final Map<String, Character> MORSE_TO_TEXT = new HashMap<>();
 
