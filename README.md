@@ -18,3 +18,11 @@
                MorseApp.java
           
 ```
+
+2. Как сдавать проект? 
+
+ - main - основная ветка, в нее вливаем после ревью
+ - feature - ветка где выполняем 
+
+Ссылка на видео https://youtube.com/playlist?list=PLwI_2hZejjw4d0bOmNhsnPwS10dhdFEEy
+Ссылка для входа в класс: https://classroom.google.com/c/ODI2NzYzNDk5NTAx?hl=ru&cjc=kp4hqaqk
