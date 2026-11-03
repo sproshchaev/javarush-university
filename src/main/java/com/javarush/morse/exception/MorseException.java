@@ -6,11 +6,11 @@ package com.javarush.morse.exception;
 public class MorseException extends Exception {
 
     public MorseException(String message) {
-        // TODO: передать сообщение в конструктор родителя
+        super(message);
     }
 
     public MorseException(String message, Throwable cause) {
-        // TODO: передать сообщение и причину в конструктор родителя
+        super(message, cause);
     }
 
 }
