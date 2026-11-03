@@ -23,7 +23,6 @@ public class MorseCoder {
 
     // ".- -... .--"
     public String decode(String line) {
-        // TODO: разбить строку на коды, каждый код заменить символом
         StringBuilder result = new StringBuilder();
         for (String code : line.trim().split(" +")) { // "А Б С" -> "А Б С".split(" ") => "А" "Б" "С" (массив строк)
             if (!code.isEmpty()) { // !true => false
