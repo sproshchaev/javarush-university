@@ -15,7 +15,10 @@ public class Alphabet {
     private static final Map<String, Character> MORSE_TO_TEXT = new HashMap<>();
 
     static {
-        // TODO: заполнить буквы, цифры и тд
+        add('А', ".-");
+        add('Б', "-...");
+        add('В', ".--");
+        // TODO: до заполнить буквы, цифры и тд
     }
 
     private Alphabet() {
@@ -23,38 +26,33 @@ public class Alphabet {
     }
 
     private static void add(char symbol, String code) {
-        // TODO: положить пару в обе карты
+        TEXT_TO_MORSE.put(symbol, code);
+        MORSE_TO_TEXT.put(code, symbol);
     }
 
     private static char normalize(char symbol) {
-        // TODO: перевод в верхний регистр
-        return symbol;
+        char upper = Character.toUpperCase(symbol);
+        return upper == 'Ё' ? 'Е' : upper;
     }
 
-    // Alphabet.isSupported('A')
     public static boolean isSupported(char symbol) {
-        // TODO: проверка - есть ли символ в азбуке
-        return false;
+        return TEXT_TO_MORSE.containsKey(symbol);
     }
 
     public static boolean isKnownCode(String code) {
-        // TODO: есть ли такой код в азбуке
-        return false;
+        return MORSE_TO_TEXT.containsKey(code);
     }
 
     public static String toMorse(char symbol) {
-        // TODO: код для символа
-        return "";
+        return TEXT_TO_MORSE.get(normalize(symbol));
     }
 
-    public static char fromMorse() {
-        // TODO: символ для кода
-        return ' ';
+    public static char fromMorse(String code) {
+        return MORSE_TO_TEXT.get(code.trim());
     }
 
     public static Map<Character, String> table() {
-        // TODO: копия таблицы для вывода справки
-        return new LinkedHashMap<>();
+        return new LinkedHashMap<>(TEXT_TO_MORSE);
     }
 
 }
