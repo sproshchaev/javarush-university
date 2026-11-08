@@ -19,9 +19,9 @@ public class TraditionalSwitchExample {
                 case "Raspberry":
                     productType = "Berry";
                     break;
-                case null: // на Java 21
-                    productType = "null product";
-                    break;
+                // case null:   // так можно с Java 21, на Java 17 null проверяем до switch
+                //     productType = "null product";
+                //     break;
                 default:
                     productType = "Other";
                     break;

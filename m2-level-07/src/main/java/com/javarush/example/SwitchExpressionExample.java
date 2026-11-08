@@ -8,11 +8,12 @@ public class SwitchExpressionExample {
         for (String product : products) {
 
             // 1. Switch expression
-            String productType = switch (product) {
+            // На Java 17 switch по null бросает NullPointerException, поэтому null проверяем до switch
+            String productType = product == null ? "null product" : switch (product) {
                 case "Apple", "Peach" -> "Fruit"; // группировка значений
                 case "Raspberry" -> "Berry";
                 case "Banana" -> "Tropical Fruit";
-                case null -> "null product"; // на Java 21
+                // case null -> "null product"; // так можно с Java 21
                 default -> "other product";
             };
             System.out.println(product + " -> " + productType);
@@ -36,11 +37,14 @@ public class SwitchExpressionExample {
 
     // Метод возвращает категорию продукта через switch expression
     public static String getProductCategory(String product) {
+        if (product == null) {   // на Java 17 null проверяем до switch
+            return "null product";
+        }
         return switch (product) {
             case "Apple", "Peach" -> "Fruit"; // группировка значений
             case "Raspberry" -> "Berry";
             case "Banana" -> "Tropical Fruit";
-            case null -> "null product"; // на Java 21
+            // case null -> "null product"; // так можно с Java 21
             default -> "other product";
         };
     }
