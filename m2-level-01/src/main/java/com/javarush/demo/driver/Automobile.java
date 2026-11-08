@@ -1,4 +1,4 @@
-package com.javarush.demo.library.driver;
+package com.javarush.demo.driver;
 
 public class Automobile {
 

@@ -1,4 +1,4 @@
-package com.javarush.demo.library.cofee;
+package com.javarush.demo.cofee;
 
 public class CoffeeMachineDemo {
 
