@@ -36,3 +36,41 @@ java.lang.IllegalArgumentException: Данные null
 	at com.javarush.example.BestPracticesLogging.main(BestPracticesLogging.java:38)
 2026-01-04 13:25:05,320 INFO [main] c.j.e.BestPracticesLogging [BestPracticesLogging.java:42] - Приложение завершает работу
 2026-01-04 13:25:05,423 INFO [pool-1-thread-1] c.j.e.BestPracticesLogging [BestPracticesLogging.java:29] - [Фоновая задача] Успешно завершена
+2026-11-12 23:57:19,524 DEBUG [main] c.j.l.j.LogLevelsDemo [LogLevelsDemo.java:13] - Отладка
+2026-11-12 23:57:19,526 INFO [main] c.j.l.j.LogLevelsDemo [LogLevelsDemo.java:14] - Информация
+2026-11-12 23:57:19,526 WARN [main] c.j.l.j.LogLevelsDemo [LogLevelsDemo.java:15] - Предупреждение
+2026-11-12 23:57:19,526 ERROR [main] c.j.l.j.LogLevelsDemo [LogLevelsDemo.java:16] - Ошибка
+2026-11-12 23:57:19,526 DEBUG [main] c.j.l.j.LogLevelsDemo [LogLevelsDemo.java:23] - Обработка заказа 1 на сумму 10000.0
+2026-11-12 23:57:19,527 INFO [main] c.j.l.j.LogLevelsDemo [LogLevelsDemo.java:30] - Заказ 1 успешно обработкан
+2026-11-12 23:59:15,805 DEBUG [main] c.j.l.j.LogLevelsDemo [LogLevelsDemo.java:13] - Отладка
+2026-11-12 23:59:15,807 INFO [main] c.j.l.j.LogLevelsDemo [LogLevelsDemo.java:14] - Информация
+2026-11-12 23:59:15,807 WARN [main] c.j.l.j.LogLevelsDemo [LogLevelsDemo.java:15] - Предупреждение
+2026-11-12 23:59:15,807 ERROR [main] c.j.l.j.LogLevelsDemo [LogLevelsDemo.java:16] - Ошибка
+2026-11-12 23:59:15,807 DEBUG [main] c.j.l.j.LogLevelsDemo [LogLevelsDemo.java:23] - Обработка заказа 1 на сумму 10000.0
+2026-11-12 23:59:15,808 INFO [main] c.j.l.j.LogLevelsDemo [LogLevelsDemo.java:30] - Заказ 1 успешно обработкан
+2026-11-13 00:01:59,118 ERROR [main] c.j.l.j.LogLevelsDemo [LogLevelsDemo.java:16] - Ошибка
+2026-11-13 00:03:08,416 DEBUG [main] c.j.l.j.LogLevelsDemo [LogLevelsDemo.java:13] - Отладка
+2026-11-13 00:03:08,418 INFO [main] c.j.l.j.LogLevelsDemo [LogLevelsDemo.java:14] - Информация
+2026-11-13 00:03:08,418 WARN [main] c.j.l.j.LogLevelsDemo [LogLevelsDemo.java:15] - Предупреждение
+2026-11-13 00:03:08,418 ERROR [main] c.j.l.j.LogLevelsDemo [LogLevelsDemo.java:16] - Ошибка
+2026-11-13 00:03:08,418 DEBUG [main] c.j.l.j.LogLevelsDemo [LogLevelsDemo.java:23] - Обработка заказа 1 на сумму 10000.0
+2026-11-13 00:03:08,419 INFO [main] c.j.l.j.LogLevelsDemo [LogLevelsDemo.java:30] - Заказ 1 успешно обработкан
+2026-11-13 00:03:28,114 INFO [main] c.j.l.j.LogLevelsDemo [LogLevelsDemo.java:14] - Информация
+2026-11-13 00:03:28,115 WARN [main] c.j.l.j.LogLevelsDemo [LogLevelsDemo.java:15] - Предупреждение
+2026-11-13 00:03:28,116 ERROR [main] c.j.l.j.LogLevelsDemo [LogLevelsDemo.java:16] - Ошибка
+2026-11-13 00:03:28,116 INFO [main] c.j.l.j.LogLevelsDemo [LogLevelsDemo.java:30] - Заказ 1 успешно обработкан
+2026-11-13 00:03:55,112 ERROR [main] c.j.l.j.LogLevelsDemo [LogLevelsDemo.java:16] - Ошибка
+2026-11-13 00:09:05,705 DEBUG [main] c.j.l.j.LogLevelsDemo [LogLevelsDemo.java:12] - Отладка
+2026-11-13 00:09:05,707 INFO [main] c.j.l.j.LogLevelsDemo [LogLevelsDemo.java:13] - Информация
+2026-11-13 00:09:05,707 WARN [main] c.j.l.j.LogLevelsDemo [LogLevelsDemo.java:14] - Предупреждение
+2026-11-13 00:09:05,707 ERROR [main] c.j.l.j.LogLevelsDemo [LogLevelsDemo.java:15] - Ошибка
+2026-11-13 00:09:05,707 DEBUG [main] c.j.l.j.LogLevelsDemo [LogLevelsDemo.java:31] - Обработка заказа 1 на сумму 10000.0
+2026-11-13 00:09:05,708 INFO [main] c.j.l.j.LogLevelsDemo [LogLevelsDemo.java:38] - Заказ 1 успешно обработкан
+2026-11-13 00:09:05,709 ERROR [main] c.j.l.j.LogLevelsDemo [LogLevelsDemo.java:25] - Ошибка: [Ljava.lang.StackTraceElement;@56235b8e
+2026-11-13 00:09:29,088 DEBUG [main] c.j.l.j.LogLevelsDemo [LogLevelsDemo.java:12] - Отладка
+2026-11-13 00:09:29,089 INFO [main] c.j.l.j.LogLevelsDemo [LogLevelsDemo.java:13] - Информация
+2026-11-13 00:09:29,089 WARN [main] c.j.l.j.LogLevelsDemo [LogLevelsDemo.java:14] - Предупреждение
+2026-11-13 00:09:29,089 ERROR [main] c.j.l.j.LogLevelsDemo [LogLevelsDemo.java:15] - Ошибка
+2026-11-13 00:09:29,089 DEBUG [main] c.j.l.j.LogLevelsDemo [LogLevelsDemo.java:31] - Обработка заказа 1 на сумму 10000.0
+2026-11-13 00:09:29,090 INFO [main] c.j.l.j.LogLevelsDemo [LogLevelsDemo.java:38] - Заказ 1 успешно обработкан
+2026-11-13 00:09:29,091 ERROR [main] c.j.l.j.LogLevelsDemo [LogLevelsDemo.java:25] - Ошибка: / by zero
