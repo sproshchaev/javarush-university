@@ -1,36 +1,60 @@
-# Generics in Java Examples
+# m2-level-05
 
-Примеры кода для вебинара по Generics (Дженерикам) в Java.
-Каждый файл соответствует ключевым концепциям и содержит исполняемый пример с подробными комментариями.
+**Сергей Прощаев**
 
-## Структура примеров по темам:
+[![Website](https://img.shields.io/badge/prosoft.pages.dev-blue?logo=googlechrome&logoColor=white)](https://prosoft.pages.dev)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-sproshchaev-0A66C2)](https://www.linkedin.com/in/sproshchaev/)
+[![Habr](https://img.shields.io/badge/Habr-sproshchaev-65A3BE?logo=habr&logoColor=white)](https://habr.com/ru/users/sproshchaev/)
 
+---
 
-### 1. Стирание типов (Type Erasure) и его обход
-**Слайды 4, 10, 11:** Как Generics работают внутри и способы обхода ограничений
-- [Slide04_TypeErasureAndBypass.java](src/main/java/com/javarush/example/Slide04_TypeErasureAndBypass.java) — подробный пример, объединяющий темы  
-  *(Показывает: стирание типов в runtime + паттерн обхода через передачу Class<T> в конструктор)*
-- [Slide04_LiveSimple.java](src/main/java/com/javarush/example/Slide04_LiveSimple.java) — простой пример для лайв-кодинга
-- [Slide10_LiveSimple.java](src/main/java/com/javarush/example/Slide10_LiveSimple.java) — пример обхода стирания
-- [Slide11_LiveSimple.java](src/main/java/com/javarush/example/Slide11_LiveSimple.java) — практическое использование Class<T>
+## 1. О занятии
 
-### 2. Создание собственных Generic-классов с ограничениями
-**Слайды 5-6:** Параметризованные классы и ограничения через `extends`
-- [Slide05_GenericClassWithBounds.java](src/main/java/com/javarush/example/Slide05_GenericClassWithBounds.java) — подробный пример  
-  *(Создание: простого generic-класса Zoo<T> + класса с ограничением Zoo<T extends Animal>)*
-- [Slide05_06_LiveSimple.java](src/main/java/com/javarush/example/Slide05_06_LiveSimple.java) — простой пример для лайв-кодинга
-- [Slide06_LiveExtendsDemo.java](src/main/java/com/javarush/example/Slide06_LiveExtendsDemo.java) — дополнительный пример ограничений
+JavaRush University, Модуль 2, Уровень 5: Generics. Разбираем проверку типов при компиляции, параметризованные классы и методы, ограничения типов и wildcards.
 
-### 3. Wildcards (Маски) и принцип PECS
-**Слайды 7, 9:** Ковариантность/контравариантность, `? extends` и `? super`
-- [Slide07_WildcardsPecsExample.java](src/main/java/com/javarush/example/Slide07_WildcardsPecsExample.java) — подробный пример  
-  *(Объясняет: почему List<Child> не подтип List<Parent> + принцип Producer Extends, Consumer Super)*
-- [Slide07_LiveWildcardExtendsDemo.java](src/main/java/com/javarush/example/Slide07_LiveWildcardExtendsDemo.java) — простой пример extends
-- [Slide09_LiveSimple.java](src/main/java/com/javarush/example/Slide09_LiveSimple.java) — простой пример extends vs super
+## 2. Примеры
 
-### 4. Generic-методы
-**Слайд 8:** Параметризованные методы, независимые от класса
-- [Slide08_GenericMethodsInPractice.java](src/main/java/com/javarush/example/Slide08_GenericMethodsInPractice.java) — подробный пример  
-  *(Показывает: утилитные generic-методы, работа с коллекциями, ограничения Comparable)*
-- [Slide08_LiveSimple.java](src/main/java/com/javarush/example/Slide08_LiveSimple.java) — простой пример для лайв-кодинга
+Пути в таблице ведут на готовые классы. Каждый запускается своим методом `main`.
 
+| Слайды | Класс | Что показываю |
+|---|---|---|
+| 3 | [Main](src/main/java/com/javarush/Main.java) | Raw-список и список строк. Ошибочные строки закомментированы, вывода в консоль нет |
+| 4, 10–11 | [Slide04_TypeErasureAndBypass](src/main/java/com/javarush/example/Slide04_TypeErasureAndBypass.java) | Стирание типов и создание объекта через переданный Class<T> |
+| 5–6 | [Slide05_GenericClassWithBounds](src/main/java/com/javarush/example/Slide05_GenericClassWithBounds.java) | Собственный generic-класс и верхняя граница типа |
+| 7, 9 | [Slide07_WildcardsPecsExample](src/main/java/com/javarush/example/Slide07_WildcardsPecsExample.java) | Чтение через extends, запись через super, PECS |
+| 8 | [Slide08_GenericMethodsInPractice](src/main/java/com/javarush/example/Slide08_GenericMethodsInPractice.java) | Generic-методы, коллекции и Comparable |
+
+Дополнительные короткие примеры:
+
+- [ErasureTypeDemo](src/main/java/com/javarush/erasetype/ErasureTypeDemo.java): стирание и Class<T>.
+- [ExtendDemo](src/main/java/com/javarush/extend/ExtendDemo.java): ограничение типа в сервисе ремонта устройств.
+- [GenericDemoMethod](src/main/java/com/javarush/method/GenericDemoMethod.java): середина массива и сравнение значений.
+- [WildcardsDemo](src/main/java/com/javarush/wildcards/WildcardsDemo.java): границы wildcard на иерархии животных.
+
+## 3. Требования
+
+JDK 17 и Maven 3.9. Проверено на Liberica JDK 17 и Maven 3.9.16. Модуль использует родительский `pom.xml`, поэтому нужен клон репозитория целиком.
+
+## 4. Сборка и запуск
+
+В терминале из корня репозитория, с JDK 17 в `JAVA_HOME`:
+
+```bash
+mvn -o -f m2-level-05/pom.xml clean test
+```
+
+Ключ `-o` использует локальный кеш Maven. При первой сборке с пустым кешем его нужно убрать для загрузки плагинов.
+
+```bash
+java -cp m2-level-05/target/classes com.javarush.example.Slide04_TypeErasureAndBypass
+```
+
+Для запуска другого примера замените полное имя класса. В IntelliJ IDEA выберите SDK 17 и нажмите Run рядом с его методом `main`.
+
+## 5. Ограничения и проверка
+
+17.11.2026 копия модуля с исходным родительским POM собрана на JDK 17: 10 исходных файлов. Все девять классов с `main` завершились с кодом 0. Автоматических тестов в модуле нет. `Example` служит заготовкой и не имеет точки входа.
+
+Предупреждение unchecked в `Main` относится к примеру raw-списка. Строки с ожидаемыми ошибками оставлены комментариями, их можно включать по одной при разборе.
+
+Короткие примеры для набора на вебинаре появляются по ходу занятия.
