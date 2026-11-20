@@ -1,0 +1,56 @@
+{
+  "info": {
+    "name": "JavaRush M3L9 — Протокол HTTP",
+    "description": "Четыре учебных запроса к JSONPlaceholder. Выберите окружение JR M3L9 — JSONPlaceholder.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "auth": {"type": "noauth"},
+  "item": [
+    {
+      "name": "01 GET — Получить пост",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {"raw": "{{base_url}}/posts/1", "host": ["{{base_url}}"], "path": ["posts", "1"]},
+        "description": "Схема и узел из base_url, путь /posts/1. В ответе смотрим 200, Content-Type и тело JSON."
+      }
+    },
+    {
+      "name": "02 GET — Фильтр по userId",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/posts?userId=1",
+          "host": ["{{base_url}}"],
+          "path": ["posts"],
+          "query": [{"key": "userId", "value": "1"}]
+        },
+        "description": "Показать поле userId во вкладке Params и тот же параметр после знака вопроса в URL."
+      }
+    },
+    {
+      "name": "03 GET — Пост не найден",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {"raw": "{{base_url}}/posts/99999", "host": ["{{base_url}}"], "path": ["posts", "99999"]},
+        "description": "Перед Send спросить группу, какой статус вернет сервер для отсутствующего ресурса. Ожидаем 404."
+      }
+    },
+    {
+      "name": "04 POST — Отправить JSON со слайда",
+      "request": {
+        "method": "POST",
+        "header": [{"key": "Content-Type", "value": "application/json", "type": "text"}],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"foo\",\n  \"body\": \"bar\",\n  \"userId\": 1\n}",
+          "options": {"raw": {"language": "json"}}
+        },
+        "url": {"raw": "{{base_url}}/posts", "host": ["{{base_url}}"], "path": ["posts"]},
+        "description": "Показать POST /posts, Headers, Body raw JSON и ответ 201. JSONPlaceholder имитирует создание записи."
+      }
+    }
+  ]
+}
