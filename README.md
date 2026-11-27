@@ -46,7 +46,7 @@
 4. Уровень 4 Mockito  [m3-level-04](m3-level-04)  
 5. Уровень 5 Логирование [m3-level-05](m3-level-05)  
 6. 
-7. Уровень 9 Протокол HTTP [m3-l9](m3-l9/README.md)
+7. Уровень 9 Протокол HTTP [m3-l9](m3-level-09/README.md)
 8. Уровень 10 HttpClient [m3-level-10](m3-level-10)  
 9. Уровень 12 Сервлеты [m3-level-12](m3-level-12)  
 10. Уровень 13 JSP, JSTL [m3-level-13](m3-level-13)  
